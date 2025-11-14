@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complete Your Payment</title>
+  <style>
+    /* Reset and Basic Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #f7f7f7, #e1e1e1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: #333;
+    }
+
+    /* Payment Container */
+    .payment-container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: 1.8em;
+      color: #00bfa5; /* Google Pay Purple */
+    }
+
+    .total {
+      font-size: 1.5em;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    /* Button Styling */
+    .payment-container button {
+      background: #00bfa5; /* Google Pay Purple */
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1.1em;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .payment-container button:hover {
+      background: #33756c; /* Darker shade for hover */
+      transform: translateY(-2px);
+    }
+
+    /* Modal Overlay */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    /* Modal Box */
+    .modal {
+      background: #fff;
+      padding: 20px;
+      border-radius: 20px;
+      text-align: center;
+      color: #333;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal h3 {
+      font-size: 1.5em;
+      color: #00bfa5;
+      margin-bottom: 10px;
+    }
+
+    .modal p {
+      margin-bottom: 20px;
+      font-size: 1em;
+      color: #555;
+    }
+
+    .modal button {
+      background: #00bfa5;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .modal button:hover {
+      background: #33756c;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="payment-container">
+    <h2>Complete Your Payment</h2>
+    <p class="total">Total: <span>₹<%= budget %></span></p>
+    
+    <form id="paymentForm" action="/confirm-payment" method="POST">
+      <button type="submit">Pay Now</button>
+    </form>
+  </div>
+
+  <!-- Confirmation Modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <h3>Payment Confirmed!</h3>
+      <p>Your booking is secured, and you're all set for an unforgettable experience.</p>
+      <button onclick="closeModal()">Back to Home</button>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('paymentForm').addEventListener('submit', function(event) {
+      showModal(); // Show confirmation modal immediately
+      setTimeout(() => {
+        this.submit(); // Allow form submission to proceed
+      }, 1000); // Delay submission for user to see modal (optional)
+    });
+  
+    function showModal() {
+      document.getElementById('modalOverlay').style.display = 'flex';
+    }
+  </script>
+  
+  
+  </script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - User Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      padding: 2rem;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #333;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+    }
+    
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    th {
+      background-color: #00bfa5;
+      color: white;
+    }
+    
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+    
+    .status {
+      font-weight: bold;
+      color: #00bfa5;
+    }
+    
+    .budget {
+      color: #333;
+      font-weight: bold;
+    }
+    
+    .notes {
+      color: #555;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Admin Dashboard - User Details</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Bride Name</th>
+          <th>Groom Name</th>
+          <th>Contact Email</th>
+          <th>Contact Phone</th>
+          <th>Wedding Date</th>
+          <th>Guest Count</th>
+          <th>Venue</th>
+          <th>Services</th>
+          <th>Budget</th>
+          <th>Event Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% users.forEach(user => { %>
+          <tr>
+            <td><%= user.username %></td>
+            <td><%= user.bride_name %></td>
+            <td><%= user.groom_name %></td>
+            <td><%= user.contact_email %></td>
+            <td><%= user.contact_phone %></td>
+            <td><%= new Date(user.wedding_date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) %></td>
+            <td><%= user.guest_count %></td>
+            <td><%= user.venue_name %>, <%= user.venue_location %></td>
+            <td>
+              <ul>
+                <li>Photography & Videography: <%= user.photography_videography %></li>
+                <li>Catering: <%= user.catering %></li>
+                <li>Makeup & Styling: <%= user.makeup_styling %></li>
+              </ul>
+            </td>
+            <td class="budget">₹<%= user.budget.toLocaleString('en-IN') %></td>
+            <td class="status"><%= user.status || 'Pending' %></td>
+          </tr>
+          <tr>
+            <td colspan="11" class="notes">Notes: <%= user.budget_notes %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Background Image and Full-Screen Layout */
+  body, html {
+    height: 100%;
+    background: url('images/login-bg.png') no-repeat center center fixed;
+    image-rendering: -webkit-optimize-contrast; /* For Webkit browsers */
+    image-rendering: crisp-edges;/* for firefox */
+    background-size: cover;
+    display: flex;
+    align-items: flex-end; /* Align content to the bottom */
+    justify-content: center; /* Center horizontally */
+  }
+  
+  /* Login container styling */
+  .main-body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 50px;
+    background-color: rgba(105, 117, 101, 0.4118); /* Slight transparency */
+    border-radius: 8px;
+    margin-bottom: 50px; /* Position it slightly above the bottom */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  /* Heading */
+  h2 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Form input fields */
+  form input[type="text"],
+  form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    font-size: 16px;
+    text-align: center;
+    background-color:  rgba(24, 25, 20, 0.21);
+    color: antiquewhite;
+
+  }
+  input::placeholder {
+    color:rgba(255, 255, 255, 0.71); /* Replace with desired color */
+    font-size: 18px; /* Replace with desired size */
+  }
+  
+  /* Button styling */
+  form button {
+    width: 200px;
+    padding: 10px;
+    background-color: rgba(24, 25, 20, 0.71);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  form button:hover {
+    background-color: #45a049;
+  }
+  
